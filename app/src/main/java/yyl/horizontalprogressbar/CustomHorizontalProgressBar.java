@@ -45,7 +45,6 @@ public class CustomHorizontalProgressBar extends ProgressBar {
         super(context, attrs, defStyleAttr);
 
         obtainStyledAttrs(attrs);
-        mPaint.setTextSize(mTextSize);
     }
 
     /**
@@ -89,6 +88,7 @@ public class CustomHorizontalProgressBar extends ProgressBar {
 
         setMeasuredDimension(widthVal,height);
 
+
         mRealWidth = getMeasuredWidth()-getPaddingLeft()-getPaddingRight();
     }
 
@@ -126,7 +126,7 @@ public class CustomHorizontalProgressBar extends ProgressBar {
 
         float radio = getProgress()*1.0f / getMax();
         float progressX = radio*mRealWidth;
-        if (progressX + textWidth > mRealWidth) {
+        if (progressX + textWidth >= mRealWidth) {
             progressX = mRealWidth - textWidth;
             noNeedUnReach = true;
         }
